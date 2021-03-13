@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/flutter_layout_page.dart';
 import 'package:flutter_app/function_learn.dart';
 import 'package:flutter_app/less_group_page.dart';
 import 'package:flutter_app/oop_learn.dart';
@@ -6,7 +7,7 @@ import 'package:flutter_app/plugin_use.dart';
 import 'package:flutter_app/statefull_group_page.dart';
 
 void main() {
-  runApp(StateGroupPage());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -17,58 +18,68 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'FlutterLesson'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('路由和导航'),
+        ),
+        body: RouteNavigator(),
+      ),
+      routes: <String, WidgetBuilder>{
+        'less': (BuildContext context) => LessGroupPage(),
+        'ful': (BuildContext context) => StateGroupPage(),
+        'layout': (BuildContext context) => FlutterLayoutPage(),
+        'plugin': (BuildContext context) => PluginUse(),
+      },
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
+class RouteNavigator extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _RouteNavigator createState() => _RouteNavigator();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _RouteNavigator extends State<RouteNavigator> {
+  bool byName = false;
+
   @override
   Widget build(BuildContext context) {
-    // _oopLearn();
-    _functionLearn();
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: ListView(
-          children: <Widget>[],
-        ),
+    return Container(
+      child: Column(
+        children: <Widget>[
+          SwitchListTile(
+            title: Text('${byName ? '' : '不'}通过路由名跳转'),
+            value: byName,
+            onChanged: (value) {
+              setState(() {
+                byName = value;
+              });
+            }
+          ),
+          _item('StateLessWidget与基础组件', LessGroupPage(), 'less'),
+          _item('stateFulWidget与基础组件', StateGroupPage(), 'ful'),
+          _item('Layout布局', FlutterLayoutPage(), 'layout'),
+          _item('Plugin插件', PluginUse(), 'plugin'),
+        ],
       ),
     );
   }
 
-  void _oopLearn() {
-    Logger log1 = Logger();
-    Logger log2 = Logger();
-    print(log1 == log2);
-    
-    print(Student.doPrint('112312'));
-    Student stu = Student('a', 'b', 13, city: 'wdawdwa');
-    print(stu);
-    print(stu.school);
-    stu.school = 'vvv';
-    print(stu.school);
-    print(stu.toString());
-
-    StudyFlutter studyFlutter = StudyFlutter();
-    studyFlutter.study();
-  }
-
-  void _functionLearn () {
-    TestFunction testFunction = TestFunction();
-    testFunction.start();
+  _item(String title, page, String routeName) {
+    return Container(
+      child: ElevatedButton(
+        onPressed: () {
+          if(byName) {
+            Navigator.pushNamed(context, routeName);
+          } else {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+          }
+        },
+        child: Text(title),
+        style: ButtonStyle(animationDuration: Duration(seconds: 0)),
+      ),
+    );
   }
 }

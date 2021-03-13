@@ -111,18 +111,18 @@ class _StateFulGroupState extends State<StateFulGroup> {
                                 content: Text('你这个糟老头子坏的很'),
                               ),
                               Image.network(
-                                'http://www.devio.org/img/avatar.png',
-                                width: 100,
-                                height: 100,
+                                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2F50%2Fv2-abafac74ef7f916cc49b1de015744703_hd.jpg&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618145131&t=25df3b520a898f7cc626fcee1361dbd2',
+                                width: 200,
+                                height: 200,
                               ),
-                              TextField(
-                                // 文本样式装饰器
-                                decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-                                  hintText: '请输入',
-                                  hintStyle: TextStyle(fontSize: 15)
-                                ),
-                              ),
+                              // TextField(
+                              //   // 文本样式装饰器
+                              //   decoration: InputDecoration(
+                              //     contentPadding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+                              //     hintText: '请输入',
+                              //     hintStyle: TextStyle(fontSize: 15)
+                              //   ),
+                              // ),
                               Container(
                                 height: 100,
                                 margin: EdgeInsets.only(top: 10),
