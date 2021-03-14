@@ -4,7 +4,10 @@ import 'package:flutter_app/function_learn.dart';
 import 'package:flutter_app/less_group_page.dart';
 import 'package:flutter_app/oop_learn.dart';
 import 'package:flutter_app/plugin_use.dart';
+import 'package:flutter_app/res_page.dart';
 import 'package:flutter_app/statefull_group_page.dart';
+
+import 'gesture_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,6 +34,8 @@ class MyApp extends StatelessWidget {
         'ful': (BuildContext context) => StateGroupPage(),
         'layout': (BuildContext context) => FlutterLayoutPage(),
         'plugin': (BuildContext context) => PluginUse(),
+        'gesture': (BuildContext context) => GesturePage(),
+        'res': (BuildContext context) => ResPage(),
       },
     );
   }
@@ -62,6 +67,8 @@ class _RouteNavigator extends State<RouteNavigator> {
           _item('stateFulWidget与基础组件', StateGroupPage(), 'ful'),
           _item('Layout布局', FlutterLayoutPage(), 'layout'),
           _item('Plugin插件', PluginUse(), 'plugin'),
+          _item('如何检测用户手势以及处理点击事件', GesturePage(), 'gesture'),
+          _item('如何导入和使用flutter的资源文件', ResPage(), 'res'),
         ],
       ),
     );

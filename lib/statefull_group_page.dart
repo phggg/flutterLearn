@@ -35,6 +35,12 @@ class _StateFulGroupState extends State<StateFulGroup> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        leading: GestureDetector(
+          child: Icon(Icons.arrow_back),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
