@@ -7,6 +7,8 @@ import 'package:flutter_app/plugin_use.dart';
 import 'package:flutter_app/res_page.dart';
 import 'package:flutter_app/statefull_group_page.dart';
 
+import 'app_lifecycle.dart';
+import 'flutter_widget_lifecycle.dart';
 import 'gesture_page.dart';
 
 void main() {
@@ -21,6 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        // brightness: Brightness.dark, // 夜间模式
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Scaffold(
@@ -36,6 +39,8 @@ class MyApp extends StatelessWidget {
         'plugin': (BuildContext context) => PluginUse(),
         'gesture': (BuildContext context) => GesturePage(),
         'res': (BuildContext context) => ResPage(),
+        'widgetLifecycle': (BuildContext context) => WidgetLifecycle(),
+        'AppLifecycle': (BuildContext context) => AppLifecycle(),
       },
     );
   }
@@ -69,6 +74,8 @@ class _RouteNavigator extends State<RouteNavigator> {
           _item('Plugin插件', PluginUse(), 'plugin'),
           _item('如何检测用户手势以及处理点击事件', GesturePage(), 'gesture'),
           _item('如何导入和使用flutter的资源文件', ResPage(), 'res'),
+          _item('flutter页面的生命周期', WidgetLifecycle(), 'widgetLifecycle'),
+          _item('flutter应用的生命周期', AppLifecycle(), 'AppLifecycle'),
         ],
       ),
     );
