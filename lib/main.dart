@@ -3,6 +3,7 @@ import 'package:flutter_app/flutter_layout_page.dart';
 import 'package:flutter_app/function_learn.dart';
 import 'package:flutter_app/less_group_page.dart';
 import 'package:flutter_app/oop_learn.dart';
+import 'package:flutter_app/photo_app_page.dart';
 import 'package:flutter_app/plugin_use.dart';
 import 'package:flutter_app/res_page.dart';
 import 'package:flutter_app/statefull_group_page.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
         'res': (BuildContext context) => ResPage(),
         'widgetLifecycle': (BuildContext context) => WidgetLifecycle(),
         'AppLifecycle': (BuildContext context) => AppLifecycle(),
+        'PhotoApp': (BuildContext context) => PhotoApp(),
       },
     );
   }
@@ -76,6 +78,7 @@ class _RouteNavigator extends State<RouteNavigator> {
           _item('如何导入和使用flutter的资源文件', ResPage(), 'res'),
           _item('flutter页面的生命周期', WidgetLifecycle(), 'widgetLifecycle'),
           _item('flutter应用的生命周期', AppLifecycle(), 'AppLifecycle'),
+          _item('拍照APP开发', PhotoApp(), 'PhotoApp'),
         ],
       ),
     );

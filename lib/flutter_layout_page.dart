@@ -91,7 +91,7 @@ class _FlutterLayoutPageState extends State<FlutterLayoutPage> {
                                           BorderRadius.all(Radius.circular(10)),
                                       // borderRadius: BorderRadius.circular(10),
                                       child: Opacity(
-                                        opacity: 1,
+                                        opacity: 0.5,
                                         child: Image.network(
                                           'https://www.devio.org/img/avatar.png',
                                           width: 100,
