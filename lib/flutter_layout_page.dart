@@ -80,7 +80,8 @@ class _FlutterLayoutPageState extends State<FlutterLayoutPage> {
                                     child: SizedBox(
                                       width: 100,
                                       height: 100,
-                                      child: Image.network('https://www.devio.org/img/avatar.png'),
+                                      child: Image.network(
+                                          'https://www.devio.org/img/avatar.png'),
                                     ),
                                   ),
                                   Padding(
@@ -108,45 +109,46 @@ class _FlutterLayoutPageState extends State<FlutterLayoutPage> {
                                 //   color: Colors.lightBlueAccent
                                 // ),
                                 child: PhysicalModel(
-                                  color: Colors.transparent,
-                                  borderRadius: BorderRadius.circular(20),
-                                  clipBehavior: Clip.antiAlias, // 抗锯齿
-                                  child: PageView(
-                                    children: <Widget>[
-                                      _item('Page1', Colors.deepPurple),
-                                      _item('Page2', Colors.green),
-                                      _item('Page3', Colors.red),
-                                    ],
-                                  )
-                                ),
+                                    color: Colors.transparent,
+                                    borderRadius: BorderRadius.circular(20),
+                                    clipBehavior: Clip.antiAlias, // 抗锯齿
+                                    child: PageView(
+                                      children: <Widget>[
+                                        _item('Page1', Colors.deepPurple),
+                                        _item('Page2', Colors.green),
+                                        _item('Page3', Colors.red),
+                                      ],
+                                    )),
                               ),
                               Column(
                                 children: <Widget>[
                                   FractionallySizedBox(
-                                    widthFactor: 1,
-                                    child: Container(
-                                      decoration: BoxDecoration(color: Colors.green),
-                                      child: Text('宽度撑满', textAlign: TextAlign.center, style: TextStyle(fontSize: 20),),
-                                    )
-                                  )
+                                      widthFactor: 1,
+                                      child: Container(
+                                        decoration:
+                                            BoxDecoration(color: Colors.green),
+                                        child: Text(
+                                          '宽度撑满',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: 20),
+                                        ),
+                                      ))
                                 ],
                               ),
                               Stack(
                                 children: <Widget>[
                                   Image.network(
-                                    'https://www.devio.org/img/avatar.png',
-                                    width: 100,
-                                    height: 100
-                                  ),
-                                  Positioned(
-                                    left: 0,
-                                    bottom: 0,
-                                    child: Image.network(
                                       'https://www.devio.org/img/avatar.png',
-                                      width: 36,
-                                      height: 36,
-                                    )
-                                  )
+                                      width: 100,
+                                      height: 100),
+                                  Positioned(
+                                      left: 0,
+                                      bottom: 0,
+                                      child: Image.network(
+                                        'https://www.devio.org/img/avatar.png',
+                                        width: 36,
+                                        height: 36,
+                                      ))
                                 ],
                               ),
                               Wrap(
@@ -165,23 +167,22 @@ class _FlutterLayoutPageState extends State<FlutterLayoutPage> {
                 ],
               ),
               onRefresh: _handleRefresh)
-          :
-          Column(
-            children: <Widget>[
-              Text('列表'),
-              Expanded( // 填充y轴方向可用的空间
-                child: Container(
+          : Column(
+              children: <Widget>[
+                Text('列表'),
+                Expanded(
+                    // 填充y轴方向可用的空间
+                    child: Container(
                   color: Colors.red,
                   child: Text('拉满高度'),
-                )
-              )
-            ],
-          ),
+                ))
+              ],
+            ),
     );
   }
 
   Future<Null> _handleRefresh() async {
-    await Future.delayed(Duration(milliseconds: 200));
+    await Future.delayed(Duration(milliseconds: 3000));
     return null;
   }
 
@@ -193,13 +194,16 @@ class _FlutterLayoutPageState extends State<FlutterLayoutPage> {
     );
   }
 
-  _chip (String label) {
-    return Chip (
-      label: Text(label, style: TextStyle(fontSize: 20),),
+  _chip(String label) {
+    return Chip(
+      label: Text(
+        label,
+        style: TextStyle(fontSize: 20),
+      ),
       avatar: CircleAvatar(
         backgroundColor: Colors.blue.shade900,
         child: Text(
-          label.substring(0,1),
+          label.substring(0, 1),
           style: TextStyle(fontSize: 20),
         ),
       ),
