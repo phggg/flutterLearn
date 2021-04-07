@@ -85,10 +85,10 @@ class _FlutterLayoutPageState extends State<FlutterLayoutPage> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.all(10),
+                                    padding: EdgeInsets.all(20),
                                     child: ClipRRect(
                                       borderRadius:
-                                          BorderRadius.all(Radius.circular(10)),
+                                          BorderRadius.all(Radius.circular(20)),
                                       // borderRadius: BorderRadius.circular(10),
                                       child: Opacity(
                                         opacity: 0.5,

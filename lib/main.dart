@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/flutter_layout_page.dart';
 import 'package:flutter_app/function_learn.dart';
 import 'package:flutter_app/less_group_page.dart';
+import 'package:flutter_app/logo_page.dart';
+import 'package:flutter_app/test_page.dart';
 import 'package:flutter_app/oop_learn.dart';
 import 'package:flutter_app/photo_app_page.dart';
 import 'package:flutter_app/plugin_use.dart';
@@ -43,6 +45,8 @@ class MyApp extends StatelessWidget {
         'widgetLifecycle': (BuildContext context) => WidgetLifecycle(),
         'AppLifecycle': (BuildContext context) => AppLifecycle(),
         'PhotoApp': (BuildContext context) => PhotoApp(),
+        'LogoApp': (BuildContext context) => LogoApp(),
+        'TestApp': (BuildContext context) => TestApp(),
       },
     );
   }
@@ -70,6 +74,7 @@ class _RouteNavigator extends State<RouteNavigator> {
               });
             }
           ),
+          Text('aaa'),
           _item('StateLessWidget与基础组件', LessGroupPage(), 'less'),
           _item('stateFulWidget与基础组件', StateGroupPage(), 'ful'),
           _item('Layout布局', FlutterLayoutPage(), 'layout'),
@@ -79,6 +84,8 @@ class _RouteNavigator extends State<RouteNavigator> {
           _item('flutter页面的生命周期', WidgetLifecycle(), 'widgetLifecycle'),
           _item('flutter应用的生命周期', AppLifecycle(), 'AppLifecycle'),
           _item('拍照APP开发', PhotoApp(), 'PhotoApp'),
+          _item('动画入门', LogoApp(), 'LogoApp'),
+          _item('TestApp', TestApp(), 'TestApp'),
         ],
       ),
     );

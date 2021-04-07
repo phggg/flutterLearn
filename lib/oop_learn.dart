@@ -15,7 +15,7 @@ class Person {
 
 class Student extends Person {
   // 定义类的变量
-  String _school; // 通过下划线来标识似有字段（变量）
+  String _school; // 通过下划线来标识私有字段（变量）
   String city;
   String country;
   String name;
