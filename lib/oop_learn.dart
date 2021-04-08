@@ -23,10 +23,12 @@ class Student extends Person {
   /// 通过this._school初始化自有参数， name、age交给父类进行初始化, {}包裹的为可选参数
   Student(this._school, String name, int age,
       {this.city, this.country = 'China'})
-      : name = '$country.$city',
+      : // 初始化列表，除了调用父类构造器，在子类构造器方法体之前，你也可以初始化实例变量，不同的初始化变量之间用逗号分隔
+        name = '$country.$city',
+        // 如果父类没有默认构造方法（无参的构造方法），则需要在初始列表中调用父类的构造方法进行初始化
         super(name, age) {
-     print('构造方法提不是必须的');
-  }
+          print('构造方法提不是必须的');
+        }
 
   String get school => _school;
 
@@ -37,7 +39,7 @@ class Student extends Person {
 
   @override
   String toString() {
-    return 'Student{_school: $_school, city: $city, country: $country, name: $name}';
+    return 'Student{_school: $_school, city: $city, country: $country, name: $name, age: $age}';
   }
 
   Student.cover(Student stu): super(stu.name, stu.age){

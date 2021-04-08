@@ -3,6 +3,7 @@ import 'package:flutter_app/flutter_layout_page.dart';
 import 'package:flutter_app/function_learn.dart';
 import 'package:flutter_app/less_group_page.dart';
 import 'package:flutter_app/logo_page.dart';
+import 'package:flutter_app/animation_logo.dart';
 import 'package:flutter_app/test_page.dart';
 import 'package:flutter_app/oop_learn.dart';
 import 'package:flutter_app/photo_app_page.dart';
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
         'PhotoApp': (BuildContext context) => PhotoApp(),
         'LogoApp': (BuildContext context) => LogoApp(),
         'TestApp': (BuildContext context) => TestApp(),
+        'AnimatedLogo': (BuildContext context) => AnimatedLogo(),
       },
     );
   }
@@ -62,6 +64,7 @@ class _RouteNavigator extends State<RouteNavigator> {
 
   @override
   Widget build(BuildContext context) {
+    _oopLearn();
     return Container(
       child: Column(
         children: <Widget>[
@@ -86,6 +89,7 @@ class _RouteNavigator extends State<RouteNavigator> {
           _item('拍照APP开发', PhotoApp(), 'PhotoApp'),
           _item('动画入门', LogoApp(), 'LogoApp'),
           _item('TestApp', TestApp(), 'TestApp'),
+          _item('AnimatedLogo', AnimatedLogo(), 'AnimatedLogo'),
         ],
       ),
     );
@@ -105,5 +109,13 @@ class _RouteNavigator extends State<RouteNavigator> {
         style: ButtonStyle(animationDuration: Duration(seconds: 0)),
       ),
     );
+  }
+
+  void _oopLearn(){
+    Logger log1 = Logger();
+    Logger log2 = Logger();
+    // print(log1 == log2);
+    Student s1 = Student('1','2',3, country: 'alibaba', city: 'dingding');
+    print(s1);
   }
 }
