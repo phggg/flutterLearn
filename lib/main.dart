@@ -10,12 +10,15 @@ import 'package:flutter_app/photo_app_page.dart';
 import 'package:flutter_app/plugin_use.dart';
 import 'package:flutter_app/res_page.dart';
 import 'package:flutter_app/statefull_group_page.dart';
+import 'package:flutter_app/hero_page.dart';
 
 import 'app_lifecycle.dart';
 import 'flutter_widget_lifecycle.dart';
 import 'gesture_page.dart';
+import 'heroNew_page.dart';
 
 void main() {
+  // runApp(MaterialApp(home: HeroAnimation()));
   runApp(MyApp());
 }
 
@@ -49,6 +52,8 @@ class MyApp extends StatelessWidget {
         'LogoApp': (BuildContext context) => LogoApp(),
         'TestApp': (BuildContext context) => TestApp(),
         'AnimatedLogo': (BuildContext context) => AnimatedLogo(),
+        'HeroAnimation': (BuildContext context) => HeroAnimation(),
+        'RadialExpansionDemo': (BuildContext context) => RadialExpansionDemo(),
       },
     );
   }
@@ -64,7 +69,7 @@ class _RouteNavigator extends State<RouteNavigator> {
 
   @override
   Widget build(BuildContext context) {
-    _oopLearn();
+    // _oopLearn();
     return Container(
       child: Column(
         children: <Widget>[
@@ -90,6 +95,8 @@ class _RouteNavigator extends State<RouteNavigator> {
           _item('动画入门', LogoApp(), 'LogoApp'),
           _item('TestApp', TestApp(), 'TestApp'),
           _item('AnimatedLogo', AnimatedLogo(), 'AnimatedLogo'),
+          _item('HeroAnimation', HeroAnimation(), 'HeroAnimation'),
+          _item('RadialExpansionDemo', RadialExpansionDemo(), 'RadialExpansionDemo'),
         ],
       ),
     );

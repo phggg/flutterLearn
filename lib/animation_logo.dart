@@ -25,6 +25,40 @@ class AnimatedLogoTest extends AnimatedWidget{
   }
 }
 
+class LogoWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 30),
+      child: FlutterLogo(),
+    );
+  }
+}
+
+class GrowTransition extends StatelessWidget {
+  final Widget child;
+  final Animation<double> animation;
+
+  GrowTransition({this.child, this.animation});
+  
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+        animation: animation,
+        builder: (context, child) => Container(
+          width: animation.value,
+          height: animation.value,
+          child: child,
+        ),
+      child: child,
+    );
+  }
+
+ 
+}
+
+
+
 class _AnimatedLogoState extends State<AnimatedLogo> with SingleTickerProviderStateMixin {
   Animation<double> animation;
   AnimationController controller;
@@ -48,7 +82,8 @@ class _AnimatedLogoState extends State<AnimatedLogo> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnimatedLogoTest(animation: animation),
+      body: GrowTransition(animation: animation, child: LogoWidget()),
+      // body: AnimatedLogoTest(animation: animation),
     );
   }
 }
